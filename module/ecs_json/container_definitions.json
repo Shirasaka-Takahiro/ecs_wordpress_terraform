@@ -1,6 +1,6 @@
 [
     {
-        "name": "example-prod-web01",
+        "name": "example-prod-wordpress",
         "image": "${ecr_repository_url}",
         "essential": true,
         "portMappings": [
@@ -13,7 +13,7 @@
             "logDriver": "awslogs",
             "options": {
               "awslogs-region": "ap-northeast-1",
-              "awslogs-stream-prefix": "web01",
+              "awslogs-stream-prefix": "wordpress",
               "awslogs-group": "${cw_log_group}"
             }
           }

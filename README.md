@@ -1,8 +1,8 @@
 ■Set-Up
 1. Create S3 for tfstate
-ex)example-dev-alb-accesslog-bucket
+ex)example-dev-tfstate
 
-2. Build Dockerfile locally
+1. Build Dockerfile locally
 
 ■Resources
 <br />
@@ -11,6 +11,12 @@ ECS(fargate) x 2
 ECR
 <br />
 ALB x 1
+<br />
+RDS x 1
+<br />
+EFS x 1
+<br />
+SSM Parameter Store
 <br />
 Cloud Watch Log Group
 <br />
