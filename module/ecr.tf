@@ -1,5 +1,5 @@
 ##ECR Repository
-resource "aws_ecr_repository" "web01" {
+resource "aws_ecr_repository" "wordpress" {
   name = var.repository_name
   image_tag_mutability = "MUTABLE"
 

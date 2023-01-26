@@ -108,6 +108,63 @@ variable "sub_domain_1" {
   default     = "www"
 }
 
+##RDS Option Group
+variable "engine_name" {
+  type    = string
+  default = "mysql"
+}
+
+variable "major_engine_version" {
+  type    = string
+  default = "8.0"
+}
+
+##RDS
+variable "engine" {
+  type    = string
+  default = "mysql"
+}
+
+variable "engine_version" {
+  type    = string
+  default = "8.0"
+}
+
+variable "username" {
+  description = "root username of db instance"
+  type        = string
+  default     = "admin"
+}
+
+variable "password" {
+  description = "root password of db instance"
+  type        = string
+  default     = "Password1!"
+}
+
+variable "instance_class" {
+  description = "The class of db instance"
+  type        = string
+  default     = "db.t3.medium"
+}
+
+variable "storage_type" {
+  description = "The storage type of db instance"
+  type        = string
+  default     = "gp2"
+}
+
+variable "allocated_storage" {
+  description = "The allocated storage of db instance"
+  default     = 20
+}
+
+variable "multi_az" {
+  description = "multi az of db instance"
+  type        = string
+  default     = "true"
+}
+
 ##ECR Image Name
 variable "repository_name" {
   description = "ECR repository name"
@@ -141,4 +198,20 @@ variable "fargate_memory" {
   description = "fargate memory"
   type        = string
   default     = "512"
+}
+
+##SSM Parameter
+variable "wordpress_db_user" {
+  description = "db user for wordpress"
+  type        = string
+}
+
+variable "wordpress_db_password" {
+  description = "db password for wordpress"
+  type        = string
+}
+
+variable "wordpress_db_name" {
+  description = "db name for wordpress"
+  type        = string
 }
