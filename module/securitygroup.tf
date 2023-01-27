@@ -23,6 +23,33 @@ resource "aws_security_group" "common" {
   }
 }
 
+##Security Group for Bastion
+resource "aws_security_group" "bastion" {
+  vpc_id = aws_vpc.vpc.id
+  name = "${var.general_config["project"]}-${var.general_config["env"]}-bastion-sg"
+
+  ##SSH 
+  ingress {
+    cidr_blocks = ["${var.bastion_ssh_ip}"]
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+  }
+
+  ##all_out
+  egress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+  }
+
+  tags = {
+    Name = "${var.general_config["project"]}-${var.general_config["env"]}-bastion-sg"
+  }
+
+}
+
 ##Security Group for alb
 resource "aws_security_group" "alb" {
   vpc_id = aws_vpc.vpc.id

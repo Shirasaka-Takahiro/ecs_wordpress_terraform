@@ -2,7 +2,7 @@
 resource "aws_ssm_parameter" "wordpress_db_host" {
   name        = "WORDPRESS_DB_HOST"
   type        = "String"
-  value       = aws_db_instance.rds.address
+  value       = aws_db_instance.rds_db_instance.address
 }
  
 resource "aws_ssm_parameter" "wordpress_db_user" {

@@ -14,6 +14,6 @@ resource "aws_efs_file_system" "file_system" {
 resource "aws_efs_mount_target" "mount_target" {
   count = length(var.dmz_subnets.subnets)
   subnet_id = element(values(aws_subnet.dmz_subnets)[*].id, count.index % 2)
-  file_system_id = aws_efs_file_system.efs_file_system.id
+  file_system_id = aws_efs_file_system.file_system.id
   security_groups = [aws_security_group.efs.id]
 }

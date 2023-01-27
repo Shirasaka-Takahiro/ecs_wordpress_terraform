@@ -22,10 +22,10 @@ resource "null_resource" "web01" {
   #}
 
   provisioner "local-exec" {
-    command = "docker tag ${var.image_name}:v1 ${aws_ecr_repository.web01.repository_url}:latest"
+    command = "docker tag ${var.image_name}:v1 ${aws_ecr_repository.wordpress.repository_url}:latest"
   }
 
   provisioner "local-exec" {
-    command = "docker push ${aws_ecr_repository.web01.repository_url}:latest"
+    command = "docker push ${aws_ecr_repository.wordpress.repository_url}:latest"
   }
 }

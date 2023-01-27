@@ -12,6 +12,13 @@ variable "private_subnets" {}
 variable "public_subnet_ids" {}
 variable "dmz_subnet_ids" {}
 variable "private_subnet_ids" {}
+variable "ami_bastion" {}
+variable "bastion_ssh_ip" {}
+variable "instance_type_bastion" {}
+variable "volume_type_bastion" {}
+variable "volume_size_bastion" {}
+variable "key_name_bastion" {}
+variable "public_key_path_bastion" {}
 #variable "zone_name" {}
 variable "sub_domain_1" {}
 variable "engine_name" {}

@@ -22,6 +22,7 @@ module "prod" {
   public_subnet_ids       = module.prod.public_subnet_ids
   dmz_subnet_ids          = module.prod.dmz_subnet_ids
   private_subnet_ids      = module.prod.private_subnet_ids
+  ami_bastion = var.ami_bastion
   bastion_ssh_ip          = var.bastion_ssh_ip
   instance_type_bastion   = var.instance_type_bastion
   volume_type_bastion     = var.volume_type_bastion

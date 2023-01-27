@@ -95,6 +95,11 @@ variable "private_subnets" {
 }
 
 ##Bastion
+variable "ami_bastion" {
+  description = "ID of AMI to use for ec2 instance"
+  default     = "ami-0bba69335379e17f8"
+}
+
 variable "bastion_ssh_ip" {
   description = "IP address for ssh access to bastion"
   type        = string
@@ -209,7 +214,7 @@ variable "repository_name" {
 variable "image_name" {
   description = "Dockerimage name"
   type        = string
-  default     = "takahiros991/apache_terraform"
+  default     = "takahiros991/wordpress_terraform"
 }
 
 ##Dockerfile Directory

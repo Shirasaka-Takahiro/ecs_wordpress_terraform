@@ -19,11 +19,11 @@ resource "aws_ecs_task_definition" "task" {
   network_mode          = "awsvpc"
   execution_role_arn    = aws_iam_role.fargate_task_execution.arn
  
-  volume = {
+  volume {
     name = "fargate-wordpress-efs"
 
     efs_volume_configuration {
-      file_system_id = aws_efs_file_system.file_system.ID
+      file_system_id = aws_efs_file_system.file_system.id
       root_directory = "/"
     }
   }
