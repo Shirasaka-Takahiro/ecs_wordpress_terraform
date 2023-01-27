@@ -12,6 +12,17 @@ resource "aws_instance" "bastion" {
     volume_size = var.volume_size_bastion
   }
 
+  ##Install MySQL client
+  user_data = <<EOF
+  #!/bin/bash
+  yum update -y
+
+  ### mysql
+  wget https://dev.mysql.com/get/mysql80-community-release-el7-7.noarch.rpm
+  yum localinstall -y mysql80-community-release-el7-7.noarch.rpm
+  yum install -y mysql-community-client
+  EOF
+
   tags = {
     Name = "${var.general_config["project"]}-${var.general_config["env"]}-bastion01"
   }

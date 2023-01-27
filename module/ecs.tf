@@ -35,7 +35,7 @@ resource "aws_ecs_task_definition" "task" {
  
 ##Service
 resource "aws_ecs_service" "service" {
-  name             = "service-fargate-web01"
+  name             = "service-fargate-wordpress"
   cluster          = aws_ecs_cluster.cluster.arn
   task_definition  = aws_ecs_task_definition.task.arn
   desired_count    = 2
@@ -44,7 +44,7 @@ resource "aws_ecs_service" "service" {
  
   load_balancer {
     target_group_arn = aws_lb_target_group.tg.arn
-    container_name   = "${var.general_config["project"]}-${var.general_config["env"]}-web01"
+    container_name   = "${var.general_config["project"]}-${var.general_config["env"]}-wordpress"
     container_port   = "80"
   }
  

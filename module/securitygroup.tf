@@ -120,7 +120,7 @@ resource "aws_security_group" "rds" {
     cidr_blocks = ["${var.vpc_cidr}"]
     from_port   = 3306
     to_port     = 3306
-    protocol    = "-1"
+    protocol    = "tcp"
   }
 
   ##all_out

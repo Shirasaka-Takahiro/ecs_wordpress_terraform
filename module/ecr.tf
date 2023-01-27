@@ -12,7 +12,7 @@ resource "aws_ecr_repository" "wordpress" {
 data "aws_caller_identity" "current" {}
 
 ##Build up Dockerfile  
-resource "null_resource" "web01" {
+resource "null_resource" "wordpress" {
   provisioner "local-exec" {
     command = "aws ecr get-login-password --region ${var.regions["tokyo"]} | docker login --username AWS --password-stdin ${data.aws_caller_identity.current.account_id}.dkr.ecr.${var.regions["tokyo"]}.amazonaws.com"
   }
