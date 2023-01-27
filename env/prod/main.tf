@@ -12,16 +12,22 @@ provider "aws" {
 module "prod" {
   source = "../../module"
 
-  general_config     = var.general_config
-  regions            = var.regions
-  availability_zones = var.availability_zones
-  vpc_cidr           = var.vpc_cidr
-  public_subnets     = var.public_subnets
-  dmz_subnets        = var.dmz_subnets
-  private_subnets    = var.private_subnets
-  public_subnet_ids  = module.prod.public_subnet_ids
-  dmz_subnet_ids     = module.prod.dmz_subnet_ids
-  private_subnet_ids = module.prod.private_subnet_ids
+  general_config          = var.general_config
+  regions                 = var.regions
+  availability_zones      = var.availability_zones
+  vpc_cidr                = var.vpc_cidr
+  public_subnets          = var.public_subnets
+  dmz_subnets             = var.dmz_subnets
+  private_subnets         = var.private_subnets
+  public_subnet_ids       = module.prod.public_subnet_ids
+  dmz_subnet_ids          = module.prod.dmz_subnet_ids
+  private_subnet_ids      = module.prod.private_subnet_ids
+  bastion_ssh_ip          = var.bastion_ssh_ip
+  instance_type_bastion   = var.instance_type_bastion
+  volume_type_bastion     = var.volume_type_bastion
+  volume_size_bastion     = var.volume_size_bastion
+  key_name_bastion        = var.key_name_bastion
+  public_key_path_bastion = var.public_key_path_bastion
   #zone_name          = var.zone_name
   sub_domain_1          = var.sub_domain_1
   engine_name           = var.engine_name

@@ -94,6 +94,39 @@ variable "private_subnets" {
   }
 }
 
+##Bastion
+variable "bastion_ssh_ip" {
+  description = "IP address for ssh access to bastion"
+  type        = string
+}
+
+variable "instance_type_bastion" {
+  description = "The type of bastion instance"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "volume_type_bastion" {
+  description = "The type of root block device"
+  type        = string
+  default     = "gp2"
+}
+
+variable "volume_size_bastion" {
+  description = "The size of root block device"
+  default     = 100
+}
+
+variable "key_name_bastion" {
+  description = "key name of the key pair"
+  type        = string
+}
+
+variable "public_key_path_bastion" {
+  description = "key path of the bastion's public key. Example: ~/.ssh/terraform.pub"
+  type        = string
+}
+
 ##Route53 Zone 
 #variable "zone_name" {
 #  description = "zone name of route53"
